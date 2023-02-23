@@ -9,8 +9,6 @@ function FormInput({label, ...otherProps}) {
       {label && (
         <label className={`${otherProps.value.length ? 'shrink' : 'null'} form-input-label`}>{label}</label>
      ) }
-
-
     </div>
   )
 }

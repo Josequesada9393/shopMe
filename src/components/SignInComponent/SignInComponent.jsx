@@ -8,6 +8,7 @@ import {
    signInWithGoogleRedirect } from '../../Utils/Firebase/firebase';
 
 import SignUpForm from '../SingUpForm/SignUpForm';
+import Button from '../button/Button';
 
   function SignInComponent() {
 
@@ -32,9 +33,9 @@ import SignUpForm from '../SingUpForm/SignUpForm';
   return (
     <div>
       <h1>Sign In Page</h1>
-      <button onClick={logGoogleUser}>Sign in with Google PopUp</button>
-      <button onClick={signInWithGoogleRedirect}>
-        Sign in with Google Redirect</button>
+      <Button buttonType="google-sign-in" onClick={logGoogleUser}>Sign in with Google PopUp</Button>
+      <Button buttonType="google-sign-in" onClick={signInWithGoogleRedirect}>
+        Sign in with Google Redirect</Button>
     <SignUpForm/>
     </div>
   )
