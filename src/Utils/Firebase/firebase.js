@@ -5,7 +5,8 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from 'firebase/auth'
 
 import {
@@ -52,17 +53,19 @@ export const createUserDocumentFromAuth = async (
   userAuth,
   extraInfo = {}
 ) => {
+  console.log('userAuth in firebase', userAuth)
   if (!userAuth) return;
-  const userDocRef = doc(db, 'users', userAuth.uid)
+  const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
   if (!userSnapshot.exists()) {
-    const { displayName, email } = userAuth;
+    const { displayName, email, emailVerified } = userAuth;
     const createdAt = new Date();
     try {
       await setDoc(userDocRef, {
         displayName,
         email,
         createdAt,
+        emailVerified,
         ...extraInfo
       })
     } catch (error) {
@@ -80,3 +83,7 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
  return await signInWithEmailAndPassword(auth, email, password);
 }
+
+// sign out method
+
+export const signOutUser = async () => await signOut(auth);

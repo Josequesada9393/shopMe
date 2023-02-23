@@ -1,10 +1,10 @@
 import React from 'react'
 import "../SingUpForm/SignUpForm.scss"
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../Utils/Firebase/firebase'
 import FormInput from '../FormInput/FormInput'
 import Button from '../button/Button'
-
+import { UserContext } from '../../context/UserContext'
 
 const SignUpForm = () => {
 
@@ -15,9 +15,9 @@ const SignUpForm = () => {
   confirmPassword: ''
 }
   const [formFields, setFormFields] = useState(defaultFormFields);
-
   const {displayName, email, password, confirmPassword} = formFields
 
+  const {setCurrentUser} = useContext(UserContext)
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormFields({ ...formFields, [name]: value })
@@ -34,8 +34,10 @@ const SignUpForm = () => {
       return
     }
     try {
-      const {user} = await createAuthUserWithEmailAndPassword(email, password)
-      console.log(user);
+      //create the user in firebase with firebase native method
+      const { user } = await createAuthUserWithEmailAndPassword(email, password)
+      setCurrentUser(user)
+      //store the user in the database
       await createUserDocumentFromAuth(user, { displayName })
       resetFields()
 
@@ -81,7 +83,7 @@ const SignUpForm = () => {
           value={password} />
 
         <FormInput
-        label="ConfirmPassword"
+        label="Confirm Password"
         require="true"
         type="password"
         onChange={handleChange}
