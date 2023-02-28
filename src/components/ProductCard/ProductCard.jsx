@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '../button/Button'
-import '../ProductCard/ProductCardStyle.scss'
+import './ProductCardStyle.scss'
 
 
 
