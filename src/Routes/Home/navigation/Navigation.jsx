@@ -13,7 +13,6 @@ const Navigation = () => {
 
   const {isCartOpen} = useContext(CartContext)
 
-
   const { currentUser, setCurrentUser } = useContext(UserContext)
   const signOutHandler = async () => {
     await signOutUser()
