@@ -5,7 +5,7 @@ import {Routes, Route, Outlet} from 'react-router-dom'
 import Navigation from './Routes/Home/navigation/Navigation';
 import Authentication from './components/Authentication/Authentication'
 import Shop from '../src/Routes/shop/Shop'
-import CheckoutItems from './components/CheckoutItems/CheckoutItems';
+import CheckoutItems from './Routes/CheckoutItems/CheckoutItems';
 
 function App() {
 
