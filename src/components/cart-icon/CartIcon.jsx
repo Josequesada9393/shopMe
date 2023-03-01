@@ -20,7 +20,7 @@ function CartIcon() {
   return (
     <div onClick={toggleIsCartOpen} className='cart-icon-container'>
       <ShopIcon  className='shopping-icon'/>
-      <span>{quantity + 1}</span>
+      <span>{quantity}</span>
     </div>
   )
 }
