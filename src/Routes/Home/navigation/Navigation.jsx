@@ -8,13 +8,12 @@ import { signOut } from "firebase/auth";
 import { signOutUser } from "../../../Utils/Firebase/firebase";
 import CartIcon from "../../../components/cart-icon/CartIcon";
 import CartDropdown from "../../../components/Cart-dropdown/CartDropdown";
+import { CartContext } from "../../../context/CartContext";
+
+
 const Navigation = () => {
+  const { isCartOpen } = useContext(CartContext)
 
-  const [isCart, setIsCart] = useState(false);
-
-  const openCart = () => {
-    setIsCart(!isCart)
-  }
   const { currentUser, setCurrentUser } = useContext(UserContext)
   const signOutHandler = async () => {
     await signOutUser()
@@ -35,9 +34,9 @@ const Navigation = () => {
            ( <Link className="nav-link" to='/auth'>
               Sign In
             </Link>)}
-          <CartIcon onClick={() => openCart()}/>
+          <CartIcon/>
         </div>
-        {isCart && <CartDropdown/>}
+        {isCartOpen && <CartDropdown/>}
       </div>
       <Outlet/>
     </Fragment>
