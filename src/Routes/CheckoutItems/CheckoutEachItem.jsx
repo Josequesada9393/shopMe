@@ -7,13 +7,15 @@ function CheckoutEachItem({ item }) {
   const { name, price, imageUrl, quantity } = item;
   const {addItemToCart, removeItemToCart} = useContext(CartContext)
   return (
-    <div>
-      <img src={imageUrl} alt={name} />
-      <h2>Product {name}</h2>
-      <h2>Price {price}</h2>
-      <span onClick={() => removeItemToCart(item)}>-Dec</span><h2>Quantity {quantity}</h2><span onClick={() => addItemToCart(item)}>+Inc</span>
+    <div className='checkout-item-container'>
+        <div className="image-container">
+          <img src={imageUrl} alt={name} />
+        </div>
+      <span className='name'>{name}</span>
+      <span className='quantity'>{quantity }</span>
+      <span className='price'>{price}</span>
+      <div className='remove-button'>&#10005;</div>
     </div>
-
   )
 }
 
