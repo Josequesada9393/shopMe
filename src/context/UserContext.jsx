@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
         createUserDocumentFromAuth(user)
       }
        setCurrentUser(user)
-      console.log('wuat', user)
+      console.log('userContext', user)
     })
     return unsubscribe
   },

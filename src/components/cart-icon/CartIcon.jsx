@@ -12,8 +12,8 @@ function CartIcon() {
     setIsCartOpen(!isCartOpen)
   }
   return (
-    <div className='cart-icon-container'>
-      <ShopIcon onClick={toggleIsCartOpen()} className='shopping-icon'/>
+    <div onClick={toggleIsCartOpen} className='cart-icon-container'>
+      <ShopIcon  className='shopping-icon'/>
       <span>0</span>
     </div>
   )
