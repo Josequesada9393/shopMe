@@ -27,8 +27,6 @@ function CheckoutItems() {
           <span>Remove</span>
         </div>
       </div>
-
-      <h4>image name quantity price remove</h4>
       {cartItems.map((item) => <CheckoutEachItem key={item.id} item={item} />)}
 
       <span className='total'>Total: 0</span>
