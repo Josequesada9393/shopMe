@@ -16,7 +16,9 @@ import {
   getDoc,
   setDoc,
   collection,
-  writeBatch
+  writeBatch,
+  query,
+  getDocs
 } from 'firebase/firestore'
 
 //FIREBASE AUTHENTICATION
@@ -52,6 +54,7 @@ export const signInWithGoogleRedirect =  () =>  signInWithRedirect(auth, GoogleP
 
 export const db = getFirestore();
 
+//we add collection of data from local input to our firestore database
 export const addCollectionAndDocuments = async (collectionKey,
   objectsToAdd,
 field = 'title') => {
@@ -67,6 +70,26 @@ field = 'title') => {
   console.log('done')
 }
 
+//function to get the categories and documents
+//creating this instead of using native firebase methods to facilitate modifications in change google
+//updates its methods for firebase
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories');
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+
+}
+
+//we create a user to our database from AUTH
 export const createUserDocumentFromAuth = async (
   userAuth,
   extraInfo = {}
@@ -91,11 +114,12 @@ export const createUserDocumentFromAuth = async (
   }
   return userDocRef
 }
-
+//user created with email and password
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
  return await createUserWithEmailAndPassword(auth, email, password);
 }
+//use signed in with email and password
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
  return await signInWithEmailAndPassword(auth, email, password);
@@ -105,5 +129,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
+//state changed listener to have a wider control of the current user across website
 export const onAuthStateChangedListener = (callback) =>
  onAuthStateChanged(auth, callback)
