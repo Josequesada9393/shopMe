@@ -3,8 +3,8 @@ import "../SignInForm/SignInForm.scss"
 import { useState } from 'react'
 import {createUserDocumentFromAuth, signInWithGooglePopup } from '../../Utils/Firebase/firebase'
 import FormInput from '../FormInput/FormInput'
-import Button from '../button/Button'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { BaseButton, GoogleSignInButton, InvertedButton } from '../button/Button.styles'
 
 
 const SignInForm = () => {
@@ -73,8 +73,8 @@ const SignInForm = () => {
             name="password"
             value={password} />
           <div className='buttons-container'>
-            <Button onClick={handleSubmit} type="submit">Submit</Button>
-            <Button type="button" buttonType='google' onClick={signInWithGoogle}>Google sign in</Button>
+            <BaseButton onClick={handleSubmit} type="submit">Submit</BaseButton>
+            <GoogleSignInButton type="GoogleSignInButton" buttonType='google' onClick={signInWithGoogle}>Google sign in</GoogleSignInButton>
             </div>
         </form>
       </div>

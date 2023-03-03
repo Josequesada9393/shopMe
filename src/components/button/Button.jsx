@@ -1,15 +1,6 @@
 import React from 'react'
-import '../button/Button.scss'
+import './Button.styles.jsx'
 
-//default
-
-
-//inverted
-
-
-
-
-//google sign in
 
 function Button({ children, buttonType, ...otherProps }) {
   const BUTTON_TYPES_CLASSES = {

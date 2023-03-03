@@ -1,6 +1,12 @@
 import { Outlet, Link } from "react-router-dom"
 import { Fragment } from "react"
-import {LogoContainer, NavigationContainer, NavLinksContainer, NavLink } from './Navigation.styles'
+import {
+  LogoContainer,
+  NavigationContainer,
+  NavLinksContainer,
+  NavLink,
+  NavLinks
+} from './Navigation.styles'
 import {ReactComponent as CrwnLogo} from '../../../assets/Crown.svg'
 import { useContext, useState } from "react";
 import { UserContext } from "../../../context/UserContext";
@@ -10,36 +16,31 @@ import CartDropdown from "../../../components/Cart-dropdown/CartDropdown";
 import { CartContext } from "../../../context/CartContext";
 
 const Navigation = () => {
-
-  const {isCartOpen} = useContext(CartContext)
-
-  const { currentUser, setCurrentUser } = useContext(UserContext)
-  const signOutHandler = async () => {
-    await signOutUser()
-  }
+  const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
       <NavigationContainer>
-      <LogoContainer to='/' >
-        <CrwnLogo className="logo"/>
-      </LogoContainer>
-        <NavLinksContainer >
-          {currentUser && <NavLink>{currentUser.displayName}</NavLink>}
-        <NavLink to='/shop'>
-          SHOP
-          </NavLink>
-          {currentUser ? (<NavLink as span onClick={() => signOutHandler()}>SIGN OUT</NavLink>) :
-           ( <NavLink to='/auth'>
-              Sign In
-            </NavLink>)}
-          <CartIcon/>
-        </NavLinksContainer>
-        {isCartOpen && <CartDropdown/>}
+        <LogoContainer to='/'>
+          <CrwnLogo />
+        </LogoContainer>
+        <NavLinks>
+          <NavLink to='/shop'>SHOP</NavLink>
+          {currentUser ? (
+            <NavLink as='span' onClick={signOutUser}>
+              SIGN OUT
+            </NavLink>
+          ) : (
+            <NavLink to='/auth'>SIGN IN</NavLink>
+          )}
+          <CartIcon />
+        </NavLinks>
+        {isCartOpen && <CartDropdown />}
       </NavigationContainer>
-      <Outlet/>
+      <Outlet />
     </Fragment>
-  )
-}
+  );
+};
 
 export default Navigation

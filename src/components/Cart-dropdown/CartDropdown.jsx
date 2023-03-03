@@ -5,7 +5,8 @@ import {useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import Button from '../button/Button'
 import CartItem from '../CartItem/CartItem'
-import {Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { InvertedButton } from '../button/Button.styles'
 
 
 function CartDropdown() {
@@ -23,7 +24,7 @@ function CartDropdown() {
           <CartItem key={item.id} cartItem={item}/>
         ))}
       </div>
-     <Button onClick={goToCheckout}>CHECKOUT</Button>
+     <InvertedButton onClick={goToCheckout}>CHECKOUT</InvertedButton>
     </div>
   )
 }
