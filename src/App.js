@@ -1,5 +1,4 @@
 import './App.css';
-import './categories.styles.scss'
 import Home from './Routes/Home/Home';
 import {Routes, Route, Outlet} from 'react-router-dom'
 import Navigation from './Routes/Home/navigation/Navigation';
