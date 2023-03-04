@@ -8,6 +8,7 @@ export const BackgroundImage = styled.div`
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
+
 export const Body = styled.div`
   height: 90px;
   padding: 0 25px;
@@ -29,8 +30,10 @@ export const Body = styled.div`
   p {
     font-weight: lighter;
     font-size: 16px;
+    margin: 0 6px 0;
   }
 `;
+
 
 export const DirectoryItemContainer = styled.div`
   min-width: 30%;
