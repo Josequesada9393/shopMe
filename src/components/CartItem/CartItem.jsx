@@ -2,7 +2,6 @@ import React from 'react'
 import './CartItem.scss'
 
 function CartItem({ cartItem }) {
-  console.log(cartItem)
 
   const { name, quantity, imageUrl, price } = cartItem;
 
