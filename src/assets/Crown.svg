@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="39">
-  <g fill="none" fill-rule="evenodd">
-    <path fill="#008080" d="M3 4v31h44V4H3zm36.25 23.75H10.75v-15h28.5v15zm-14.25-8.25H10.75v-2h14.5v2z"/>
-    <path fill="#fff" d="M22.5 20.5h-5.5v-1h5.5v1zM27 20.5h-1v-1h1v1zM27.5 20.5h-1v-1h1v1zM28 20.5h-1v-1h1v1zM28.5 20.5h-1v-1h1v1zM29 20.5h-1v-1h1v1zM29.5 20.5h-1v-1h1v1zM30 20.5h-1v-1h1v1zM30.5 20.5h-1v-1h1v1zM31 20.5h-1v-1h1v1zM31.5 20.5h-1v-1h1v1zM32 20.5h-1v-1h1v1zM32.5 20.5h-1v-1h1v1zM33 20.5h-1v-1h1v1zM33.5 20.5h-1v-1h1v1zM34 20.5h-1v-1h1v1zM34.5 20.5h-1v-1h1v1zM35 20.5h-1v-1h1v1zM35.5 20.5h-1v-1h1v1zM36 20.5h-1v-1h1v1zM36.5 20.5h-1v-1h1v1zM37 20.5h-1v-1h1v1zM37.5 20.5h-1v-1h1v1zM38 20.5h-1v-1h1v1zM38.5 20.5h-1v-1h1v1zM39 20.5h-1v-1h1v1zM39.5 20.5h-1v-1h1v1z"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="39"><g fill="none" fill-rule="evenodd"><path fill="#808282" d="m3 14 22 12.5L47 14l-6.145 25H9.084z"/><path fill="#101A1A" fill-opacity=".263" d="m25 8 15 31H10z"/><circle cx="2" cy="9" r="2" fill="#5E6363"/><circle cx="25" cy="2" r="2" fill="#5E6363"/><circle cx="48" cy="9" r="2" fill="#5E6363"/></g></svg>

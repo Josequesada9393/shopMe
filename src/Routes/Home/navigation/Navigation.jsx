@@ -7,7 +7,7 @@ import {
   NavLink,
   NavLinks
 } from './Navigation.styles'
-import {ReactComponent as CrwnLogo} from '../../../assets/Crown.svg'
+import  ShopMeLogo from '../../../assets/ShopMe.png'
 import { useContext, useState } from "react";
 import { UserContext } from "../../../context/UserContext";
 import { signOutUser } from "../../../Utils/Firebase/firebase";
@@ -23,7 +23,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <CrwnLogo />
+          <img src={ShopMeLogo} alt="logo" style={{ height: '100px', width: '120px', 'margin-top': '-30px'}} />
         </LogoContainer>
         <NavLinks>
           <NavLink to='/shop'>SHOP</NavLink>
