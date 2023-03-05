@@ -5,10 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Images
 
 <p align="center">
-<img src="Images/Checkout.png" width="450" height="500"/>
-<img src="Images/sectionSneakers.png"  width="450" height="500"/>
-<img src="Images/SHOP.png"  width="450" height="500"/>
- <img src="Images/sign.png"  width="450" height="500"/>
+<img src="Images/Checkout.png" width="300" height="300"/>
+<img src="Images/sectionSneakers.png"  width="300" height="300"/>
+<img src="Images/SHOP.png"  width="300" height="300"/>
+ <img src="Images/sign.png"  width="300" height="300"/>
 </p>
 
 
