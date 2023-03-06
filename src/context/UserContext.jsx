@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useReducer } from 'react';
 import { onAuthStateChangedListener, signOutUser } from '../Utils/Firebase/firebase';
 import { createUserDocumentFromAuth } from '../Utils/Firebase/firebase';
 
