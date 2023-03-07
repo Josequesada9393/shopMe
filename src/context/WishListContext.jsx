@@ -6,13 +6,21 @@ const addNewItem = (WishListItems, newWishListedItem) => {
   const existingItem = WishListItems.find((item) => newWishListedItem.id === item.id
   );
   if (!existingItem) {
-    return [...WishListItems, existingItem]
+    return [...WishListItems, { ...newWishListedItem }]
+  } else {
+    return [...WishListItems]
   }
-}
+};
+
+const removeItem = (WishListItems, ItemToRemove) => {
+  const newWishList = WishListItems.filter((item) => item.id != ItemToRemove.id)
+  return [...newWishList]
+};
 
 export const WishListContext = createContext({
   WishListItems: [],
-  addItemToWishList: () => { }
+  addItemToWishList: () => { },
+  removeItemFromWishList: () => { }
 });
 
 //REDUCER
@@ -43,21 +51,31 @@ export const WishListProvider = ({ children }) => {
   const [{ WishListItems }, dispatch] =
     useReducer(WishListReducer, INITIAL_STATE)
 
-  const setWishListItems = (items) => {
-  dispatch({type: WISH_LIST_ACTION_TYPES.SET_WISHLIST_ITEMS, payload: items})
-  }
 
   const addItemToWishList = (newWishListedItem) => {
     const newWishList = addNewItem(WishListItems, newWishListedItem);
-    console.log(newWishList)
-    setWishListItems(newWishList)
+    dispatch({
+      type: WISH_LIST_ACTION_TYPES.SET_WISHLIST_ITEMS,
+      payload: {
+        WishListItems: newWishList
+      }
+    })
+  }
 
-}
+  const removeItemFromWishList = (itemToRemove) => {
+    const newWishList = removeItem(WishListItems, itemToRemove);
+    dispatch({
+      type: WISH_LIST_ACTION_TYPES.SET_WISHLIST_ITEMS,
+      payload: {
+        WishListItems: newWishList
+      }
+    })
+  }
 
   const value = {
     WishListItems,
-    setWishListItems,
-    addItemToWishList
+    addItemToWishList,
+    removeItemFromWishList
   };
 
   return <WishListContext.Provider value={value}>{children}</WishListContext.Provider>

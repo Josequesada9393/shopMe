@@ -5,4 +5,19 @@
   height: 350px;
   align-items: center;
   position: relative;
+
+  .removeIcon {
+   position: absolute;
+    right: 5%;
+    top: 5%;
+    height: 25px;
+    width: 25px;
+    opacity: 0.6;
+  }
+
+  .removeIcon:hover{
+    opacity: 1;
+    color: rgb(160, 25, 25);
+    cursor: pointer;
+  }
 }

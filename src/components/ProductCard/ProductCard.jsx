@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { WishListContext } from '../../context/WishListContext'
 import { InvertedButton } from '../button/Button.styles'
-import {BsFillHeartFill, BSHeartbreak} from 'react-icons/bs'
+import {BsFillHeartFill} from 'react-icons/bs'
 
 
 function ProductCard({ product }) {

@@ -13,7 +13,7 @@ function Wishlist() {
 
   return (
     <div className='list-container'>
-      {WishListItems.map((item) => <WishlistItem key={item.name} item={item}/>)}
+      {WishListItems.map((item) => <WishlistItem key={item.id} item={item}/>)}
     </div>
   )
 }
