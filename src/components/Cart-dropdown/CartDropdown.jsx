@@ -3,10 +3,8 @@ import { CartDropdownContainer, EmptyMessage, CartItems, ButtonCart} from './Car
 import { useNavigate } from 'react-router-dom'
 import {useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
-import Button from '../button/Button'
 import CartItem from '../CartItem/CartItem'
-import { Link } from "react-router-dom"
-import { InvertedButton } from '../button/Button.styles'
+
 
 
 function CartDropdown() {

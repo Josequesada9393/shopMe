@@ -7,17 +7,19 @@ import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
 import { CategoriesProvider } from './context/CategoriesContext';
 import { CartProvider } from './context/CartContext';
-
+import { WishListProvider } from './context/WishListContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
+       <WishListProvider>
         <CategoriesProvider>
           <CartProvider>
             <App />
            </CartProvider>
         </CategoriesProvider>
+        </WishListProvider>
      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

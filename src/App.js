@@ -5,6 +5,8 @@ import Navigation from './Routes/Home/navigation/Navigation';
 import Authentication from './components/Authentication/Authentication'
 import Shop from '../src/Routes/shop/Shop'
 import CheckoutItems from './Routes/CheckoutItems/CheckoutItems';
+import Wishlist from './Routes/Wishlist/Wishlist';
+
 
 function App() {
 
@@ -14,7 +16,8 @@ function App() {
         <Route index element={<Home />}/>
         <Route path='shop/*' element={<Shop />} />
         <Route path="auth" element={<Authentication />} />
-        <Route path="checkout" element={<CheckoutItems/>}/>
+        <Route path="checkout" element={<CheckoutItems />} />
+        <Route path="wishlist" element={<Wishlist />} />
        </Route>
     </Routes>
   );
