@@ -35,7 +35,7 @@ const INITIAL_STATE = {
 }
 
 export const UserProvider = ({ children }) => {
-  
+
   const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE)
 
   console.log('currentUser', currentUser)
@@ -55,5 +55,6 @@ export const UserProvider = ({ children }) => {
     return unsubscribe
   },
     [])
+  
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }
