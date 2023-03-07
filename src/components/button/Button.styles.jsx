@@ -17,6 +17,7 @@ min-width: 165px;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  border-radius: 10px;
 
   &:hover {
     background-color: white;

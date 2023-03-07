@@ -26,6 +26,7 @@ const Navigation = () => {
           <img src={ShopMeLogo} alt="logo" style={{ height: '100px', width: '120px', 'margin-top': '-30px'}} />
         </LogoContainer>
         <NavLinks>
+          <NavLink to='wishlist'>WISHLIST</NavLink>
           <NavLink to='/shop'>SHOP</NavLink>
           {currentUser ? (
             <NavLink as='span' onClick={signOutUser}>
