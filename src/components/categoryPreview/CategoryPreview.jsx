@@ -13,11 +13,9 @@ function CategoryPreview({title, products}) {
       <div className='preview'>
 
         {
-          products ?
           products.filter((_, index) => index < 4).map((product) =>
               <ProductCard key={product.id} product={product}/>
-            ) :
-            'waitin for products'
+            ) 
 
         }
       </div>
