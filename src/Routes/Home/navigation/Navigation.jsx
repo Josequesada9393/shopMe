@@ -8,14 +8,13 @@ import {
   NavLinks
 } from './Navigation.styles'
 import  ShopMeLogo from '../../../assets/ShopMe.png'
-import { useContext, useState } from "react";
 import { signOutUser } from "../../../Utils/Firebase/firebase";
 import CartIcon from "../../../components/cart-icon/CartIcon";
 import CartDropdown from "../../../components/Cart-dropdown/CartDropdown";
-import { CartContext } from "../../../context/CartContext";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
 import { selectIsCartOpen } from "../../../store/cart/cart.selector";
+
 
 const Navigation = () => {
 

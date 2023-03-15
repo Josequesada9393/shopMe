@@ -11,14 +11,15 @@ import { setIsCartOpen } from '../../store/cart/cart.action.js'
 function CartDropdown() {
 
   const isCartOpen = useSelector(selectIsCartOpen)
+  const cartItems = useSelector(selectCartItems)
 
   const navigate = useNavigate();
+
   const goToCheckout = () => {
     navigate('/checkout')
     setIsCartOpen(!isCartOpen)
   }
 
-  const cartItems = useSelector(selectCartItems)
 
   return (
     <CartDropdownContainer className='cart-dropdown-container'>

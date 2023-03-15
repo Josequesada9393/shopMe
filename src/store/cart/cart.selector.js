@@ -9,7 +9,9 @@ export const selectCartItems = createSelector(
 
 export const selectIsCartOpen = createSelector(
   [selectCartReducer],
-  (cart) => cart.isCartOpen
+  (cart) => {
+    return cart.isCartOpen
+  }
 )
 
 
