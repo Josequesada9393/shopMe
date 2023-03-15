@@ -2,9 +2,6 @@ import { CART_ACTION_TYPES } from "./cart.types";
 
 import { createAction } from "../../Utils/Firebase/reducer/reducer.utils";
 
-import { useSelector } from 'react-redux'
-import { selectCartItems } from "./cart.selector";
-
 
 //logic to update the cartItems from state
 
@@ -61,6 +58,6 @@ export const setCartItems = (cartItems) => {
 
   // cart open
 
-export const setIsCartOpen = (isCartOpen) => {
-     createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, isCartOpen)
+export const setIsCartOpen = (bool) => {
+     return createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool)
   }
