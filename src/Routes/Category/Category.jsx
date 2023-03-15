@@ -10,14 +10,12 @@ function Category() {
   const {category} = useParams();
   const categoriesMap = useSelector(selectCategoriesMap)
 
-  console.log('giveme ever', categoriesMap)
-
   const [products, setProducts] = useState(categoriesMap[category]);
+
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap])
-
 
   return (
     <Fragment>
