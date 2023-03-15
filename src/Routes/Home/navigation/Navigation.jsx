@@ -8,26 +8,26 @@ import {
   NavLinks
 } from './Navigation.styles'
 import  ShopMeLogo from '../../../assets/ShopMe.png'
-import { useContext, useState } from "react";
-import { UserContext } from "../../../context/UserContext";
 import { signOutUser } from "../../../Utils/Firebase/firebase";
 import CartIcon from "../../../components/cart-icon/CartIcon";
 import CartDropdown from "../../../components/Cart-dropdown/CartDropdown";
-import { CartContext } from "../../../context/CartContext";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/user/user.selector";
+import { selectIsCartOpen } from "../../../store/cart/cart.selector";
+
 
 const Navigation = () => {
 
   // const currentUser = useSelector((state) => state.user.currentUser)
+  const isCartOpen = useSelector(selectIsCartOpen)
   const currentUser = useSelector(selectCurrentUser)
-  const { isCartOpen } = useContext(CartContext);
+  // const { isCartOpen } = useContext(CartContext);
 
   return (
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <img src={ShopMeLogo} alt="logo" style={{ height: '100px', width: '120px', 'margin-top': '-30px'}} />
+          <img src={ShopMeLogo} alt="logo" style={{ height: '100px', width: '120px', 'marginTop': '-30px'}} />
         </LogoContainer>
         <NavLinks>
           <NavLink to='wishlist'>WISHLIST</NavLink>
