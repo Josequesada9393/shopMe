@@ -31,7 +31,6 @@ export const removeCartItem = (cartItems, cartItemToRemove) => {
 }
 
 
-
 export const clearCartItem = (cartItems, cartItemToClear) => {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id)
 }
@@ -40,7 +39,7 @@ export const clearCartItem = (cartItems, cartItemToClear) => {
 //create action and dispatch to set cart items
 
 export const setCartItems = (cartItems) => {
-  createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
+   createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems)
 }
 
 
@@ -63,5 +62,5 @@ export const setCartItems = (cartItems) => {
   // cart open
 
 export const setIsCartOpen = (isCartOpen) => {
-    createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, isCartOpen)
+     createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, isCartOpen)
   }

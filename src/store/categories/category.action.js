@@ -4,4 +4,4 @@ import { createAction } from "../../Utils/Firebase/reducer/reducer.utils";
 
 
 export const setCategories = (categoriesArray) =>
-createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORY, categoriesArray)
+createAction(CATEGORIES_ACTION_TYPES.SET_CATEGORIES, categoriesArray)
