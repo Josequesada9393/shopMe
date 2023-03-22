@@ -5,7 +5,7 @@ import Category from '../Category/Category'
 import './shop.styles.scss'
 import { useEffect } from 'react'
 import { getCategoriesAndDocuments } from '../../Utils/Firebase/firebase'
-import { fetchCategoriesAsync } from '../../store/categories/category.action'
+import { fetchCategoriesStart } from '../../store/categories/category.action'
 import {useDispatch} from 'react-redux'
 function Shop() {
 
@@ -13,7 +13,7 @@ function Shop() {
 
   //using redux thunk for async state
   useEffect(() => {
-       dispatch(fetchCategoriesAsync());
+       dispatch(fetchCategoriesStart());
   }, []);
 
 
