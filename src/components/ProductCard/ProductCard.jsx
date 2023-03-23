@@ -6,17 +6,17 @@ import { WishListContext } from '../../context/WishListContext'
 import { InvertedButton } from '../button/Button.styles'
 import {BsFillHeartFill} from 'react-icons/bs'
 import { useSelector, useDispatch } from 'react-redux'
-import {addItemToCart} from '../../store/cart/cart.action'
+import {addItemToCart} from '../../store/cart/cart.reducer'
 import { selectCartItems } from '../../store/cart/cart.selector'
 
 function ProductCard({ product }) {
   const dispatch = useDispatch()
 
-  const cartItems = useSelector(selectCartItems)
   const { name, price, imageUrl } = product;
   const { addItemToWishList } = useContext(WishListContext);
 
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+  const addProductToCart = () => dispatch(addItemToCart( product));
+  console.log(product, 'asdfasdf')
 
   const addProductToWishList = () => {
     addItemToWishList(product)

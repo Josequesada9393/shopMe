@@ -5,13 +5,14 @@ import {useContext } from 'react'
 import CartItem from '../CartItem/CartItem'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectIsCartOpen } from '../../store/cart/cart.selector'
-import { setIsCartOpen } from '../../store/cart/cart.action.js'
+import { setIsCartOpen } from '../../store/cart/cart.reducer.js'
 
 
 function CartDropdown() {
 
   const isCartOpen = useSelector(selectIsCartOpen)
   const cartItems = useSelector(selectCartItems)
+  console.log(cartItems, 'aaaaaaaaaaaa')
 
   const navigate = useNavigate();
 
