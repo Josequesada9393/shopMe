@@ -16,16 +16,16 @@ function CheckoutEachItem({ item }) {
         </div>
       <span className='name'>{name}</span>
       <span className='quantity'>
-        <div className="arrow" onClick={() => dispatch(removeItemToCart(cartItems, item))} >
+        <div className="arrow" onClick={() => dispatch(removeItemToCart( item))} >
           &#10094;
         </div>
        <span className='value'>{quantity}</span>
-        <div className='arrow' onClick={() => dispatch(addItemToCart(cartItems, item))}>
+        <div className='arrow' onClick={() => dispatch(addItemToCart(item))}>
           &#10095;
           </div>
       </span>
       <span className='price'>{price}</span>
-      <div onClick={() => dispatch(clearItemFromCart(cartItems, item))} className='remove-button'>&#10005;</div>
+      <div onClick={() => dispatch(clearItemFromCart( item))} className='remove-button'>&#10005;</div>
     </div>
   )
 }

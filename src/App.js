@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { onAuthStateChangedListener, signOutUser, createUserDocumentFromAuth } from '../src/Utils/Firebase/firebase';
 import { setCurrentUser } from './store/user/user.reducer';
 import { useDispatch } from 'react-redux';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
   }, [])
 
   return (
+    <>
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route index element={<Home />}/>
@@ -37,8 +39,10 @@ function App() {
         <Route path="auth" element={<Authentication />} />
         <Route path="checkout" element={<CheckoutItems />} />
         <Route path="wishlist" element={<Wishlist />} />
-       </Route>
-    </Routes>
+      </Route>
+      </Routes>
+      <Footer/>
+      </>
   );
 }
 

@@ -8,6 +8,8 @@ import { WishListProvider } from './context/WishListContext';
 import { Provider } from 'react-redux';
 import { store } from './store/Store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { Elements } from '@stripe/react-stripe-js'
+import { stripePromise } from './Utils/Firebase/Stripe/Stripe.utils';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,8 +17,10 @@ root.render(
     <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
     <BrowserRouter>
-            <WishListProvider>
-              <App />
+        <WishListProvider>
+          <Elements stripe={stripePromise}>
+            <App />
+            </Elements>
               </WishListProvider>
         </BrowserRouter>
         {/* </PersistGate> */}

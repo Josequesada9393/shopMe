@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import CheckoutEachItem from './CheckoutEachItem';
 import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotal } from '../../store/cart/cart.selector';
+import PaymentForms from '../../components/PaymentForm/PaymentForms';
 
 import './CheckoutItems.scss'
 function CheckoutItems() {
@@ -37,6 +38,7 @@ function CheckoutItems() {
       {cartItems.map((item) => <CheckoutEachItem key={item.id} item={item} />)}
 
       <span className='total'>Total: ${cartTotal} </span>
+      <PaymentForms/>
     </div>
   )
 }
