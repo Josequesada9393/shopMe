@@ -1,9 +1,7 @@
 import React from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
-import Button, {BUTTON_TYPE_CLASSES} from '../button/Button'
 import { InvertedButton } from '../button/Button.styles'
 import {PaymentFormContainer, FormContainer} from './PaymentFormStyles'
-
 
 
 function PaymentForms() {
@@ -17,15 +15,24 @@ function PaymentForms() {
     if (!stripe || !elements) {
       return
     }
+    const response = await fetch('shopme\netflify\functions\create-payment-intent.js', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ amount: 1000 })
 
+    })
+      .then(res => res.json())
 
+    console.log(response)
     }
 
   return (
     <PaymentFormContainer>
-      <FormContainer>
+      <FormContainer onSubmit={paymentHandler}>
         <h2>Credit Card Payment</h2>
-      <CardElement />
+        <CardElement />
         <InvertedButton>Pay Now</InvertedButton>
         </FormContainer>
     </PaymentFormContainer>
