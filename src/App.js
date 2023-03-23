@@ -8,7 +8,7 @@ import CheckoutItems from './Routes/CheckoutItems/CheckoutItems';
 import Wishlist from './Routes/Wishlist/Wishlist';
 import { useEffect } from 'react';
 import { onAuthStateChangedListener, signOutUser, createUserDocumentFromAuth } from '../src/Utils/Firebase/firebase';
-import { setCurrentUser } from './store/user/user.action';
+import { setCurrentUser } from './store/user/user.reducer';
 import { useDispatch } from 'react-redux';
 
 
@@ -21,7 +21,10 @@ function App() {
       if (user) {
         createUserDocumentFromAuth(user)
       }
-       dispatch(setCurrentUser(user))
+        const pickedUser =
+        user && (({ accessToken, email }) => ({ accessToken, email }))(user);
+
+       dispatch(setCurrentUser(pickedUser))
     })
     return unsubscribe
   }, [])
