@@ -6,20 +6,20 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { WishListProvider } from './context/WishListContext';
 import { Provider } from 'react-redux';
-import { store, persistor } from './store/Store';
+import { store } from './store/Store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
     <BrowserRouter>
             <WishListProvider>
               <App />
               </WishListProvider>
         </BrowserRouter>
-        </PersistGate>
+        {/* </PersistGate> */}
       </Provider>
   </React.StrictMode>
 );

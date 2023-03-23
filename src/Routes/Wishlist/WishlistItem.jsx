@@ -4,13 +4,18 @@ import { BsHeartbreakFill } from 'react-icons/bs'
 import { WishListContext } from '../../context/WishListContext';
 import { CartContext } from '../../context/CartContext';
 import { InvertedButton } from '../../components/button/Button.styles';
+import { addItemToCart } from '../../store/cart/cart.action';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { selectCartItems } from '../../store/cart/cart.selector';
+
 
 function WishlistItem({ item }) {
+  const dispatch = useDispatch()
 
   const { removeItemFromWishList } = useContext(WishListContext)
-  const { addItemToCart } = useContext(CartContext);
-
-  const addProductToCart = () => addItemToCart(item);
+  const cartItems = useSelector(selectCartItems)
+  const addProductToCart = () => dispatch(addItemToCart(cartItems, item));
 
   const removeItem = () => {
     console.log(item)
