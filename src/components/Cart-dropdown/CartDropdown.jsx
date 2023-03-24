@@ -12,7 +12,6 @@ function CartDropdown() {
 
   const isCartOpen = useSelector(selectIsCartOpen)
   const cartItems = useSelector(selectCartItems)
-  console.log(cartItems, 'aaaaaaaaaaaa')
 
   const navigate = useNavigate();
 

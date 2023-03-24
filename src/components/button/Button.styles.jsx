@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { SpinnerContainer } from '../spinner/spinner.styles'
 
 export const BaseButton = styled.button`
 min-width: 165px;
@@ -18,6 +19,7 @@ min-width: 165px;
   display: flex;
   justify-content: center;
   border-radius: 10px;
+  align-items: center
 
   &:hover {
     background-color: white;
@@ -47,3 +49,23 @@ export const InvertedButton = styled(BaseButton)`
     }
 `
 
+export const ButtonSpinner = styled(SpinnerContainer)`
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(195, 195, 195, 0.6);
+  border-radius: 50%;
+  border-top-color: #636767;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+`;

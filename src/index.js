@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { WishListProvider } from './context/WishListContext';
 import { Provider } from 'react-redux';
-import { Store } from './store/Store';
+import { store } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from './Utils/Firebase/Stripe/Stripe.utils';
@@ -14,7 +14,7 @@ import { stripePromise } from './Utils/Firebase/Stripe/Stripe.utils';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={Store}>
+    <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
     <BrowserRouter>
         <WishListProvider>
