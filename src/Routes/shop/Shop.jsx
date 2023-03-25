@@ -7,14 +7,19 @@ import { useEffect } from 'react'
 import { getCategoriesAndDocuments } from '../../Utils/Firebase/firebase'
 import { useDispatch } from 'react-redux';
 import { setCategories } from '../../store/categories/category.reducer'
+import { useAppDispatch, useAppSelector
+} from '../../store/hooks'
+import { CategoryArray } from '../../store/categories/category.reducer'
+
+
 function Shop() {
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   //using redux thunk for async state
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments('categories')
+      const categoriesArray  = await getCategoriesAndDocuments()
       dispatch(setCategories(categoriesArray));
     };
 

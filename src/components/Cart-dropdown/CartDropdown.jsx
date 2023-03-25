@@ -5,7 +5,7 @@ import {useContext } from 'react'
 import CartItem from '../CartItem/CartItem'
 import { useSelector } from 'react-redux'
 import { selectCartItems, selectIsCartOpen } from '../../store/cart/cart.selector'
-import { setIsCartOpen } from '../../store/cart/cart.reducer.js'
+import { setIsCartOpen } from '../../store/cart/cart.reducer.ts'
 
 
 function CartDropdown() {

@@ -6,17 +6,18 @@ export type CategoryItem = {
   id: number,
   imageUrl: string,
   name: string,
-  price: number
+  price: number,
+  quantity: number
 }
 
-export type Category = {
+export type CategoryArray = {
   title: string,
   imageUrl: string,
   items: CategoryItem[],
 }
 
 export interface categoryState {
-  categories: Category[],
+  categories: CategoryArray[],
   isLoading: boolean
 }
 
@@ -29,7 +30,7 @@ export const categoriesSlice = createSlice({
   name: 'categories',
   initialState: CATEGORIES_INITIAL_STATE,
   reducers: {
-    setCategories(state, action: PayloadAction<Category[]>) {
+    setCategories(state, action: PayloadAction<CategoryArray[]>) {
       state.categories = action.payload;
     },
   },
