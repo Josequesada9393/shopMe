@@ -16,7 +16,7 @@ function ProductCard({ product }) {
   const { addItemToWishList } = useContext(WishListContext);
 
   const addProductToCart = () => dispatch(addItemToCart( product));
-  console.log(product, 'asdfasdf')
+
 
   const addProductToWishList = () => {
     addItemToWishList(product)

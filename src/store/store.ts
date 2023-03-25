@@ -43,5 +43,9 @@ export const store = configureStore({
     getDefaultMiddleware().concat(middleWares),
 });
 // sagaMiddleware.run(rootSaga);
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+
 
 // export const persistor = persistStore(store);
