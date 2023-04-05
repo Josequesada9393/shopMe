@@ -10,27 +10,32 @@ export type CategoryItem = {
   quantity: number
 }
 
-export type CategoryArray = {
+export type Category = {
   title: string,
   imageUrl: string,
   items: CategoryItem[],
 }
 
+export type CategoryMap = {
+  [key: string]: CategoryItem[]
+}
 export interface categoryState {
-  categories: CategoryArray[],
-  isLoading: boolean
+  readonly categories: Category[],
+  readonly isLoading: boolean,
+  readonly error: Error | null
 }
 
 export const CATEGORIES_INITIAL_STATE:categoryState = {
   categories: [],
-  isLoading: false
+  isLoading: false,
+  error: null
 };
 
 export const categoriesSlice = createSlice({
   name: 'categories',
   initialState: CATEGORIES_INITIAL_STATE,
   reducers: {
-    setCategories(state, action: PayloadAction<CategoryArray[]>) {
+    setCategories(state, action: PayloadAction<Category[]>) {
       state.categories = action.payload;
     },
   },

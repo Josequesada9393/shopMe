@@ -20,11 +20,12 @@ export const Body = styled.div`
   background-color: white;
   opacity: 0.7;
   position: absolute;
+  border-radius: 10px;
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
-    color: #4a4a4a;
+    color: black;
     text-transform: uppercase;
   }
   p {
@@ -45,6 +46,7 @@ export const DirectoryItemContainer = styled.div`
   border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
+  border-radius: 15px;
   &:first-child {
     margin-right: 7.5px;
   }

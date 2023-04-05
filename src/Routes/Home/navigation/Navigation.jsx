@@ -27,7 +27,7 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <img src={ShopMeLogo} alt="logo" style={{ height: '100px', width: '120px', 'marginTop': '-30px'}} />
+          <img src={ShopMeLogo} alt="logo" style={{ borderRadius: '60%', height: '90px', width: '110px', 'marginTop': '-30px'}} />
         </LogoContainer>
         <NavLinks>
           <NavLink to='wishlist'>WISHLIST</NavLink>
