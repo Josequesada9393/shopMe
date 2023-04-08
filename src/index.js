@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,11 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { WishListProvider } from './context/WishListContext';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-import { PersistGate } from 'redux-persist/integration/react';
+// import { PersistGate } from 'redux-persist/integration/react';
 import { Elements } from '@stripe/react-stripe-js'
 import { stripePromise } from './Utils/Firebase/Stripe/Stripe.utils';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -19,7 +20,7 @@ root.render(
     <BrowserRouter>
         <WishListProvider>
           <Elements stripe={stripePromise}>
-            <App />
+            <App/>
             </Elements>
               </WishListProvider>
         </BrowserRouter>
