@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 export const CART_INITIAL_STATE = {
-  isCartOpen: true,
+  isCartOpen: false,
   cartItems: [],
 }
 

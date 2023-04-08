@@ -9,13 +9,10 @@ import { setIsCartOpen } from '../../store/cart/cart.reducer.js'
 
 
 function CartDropdown() {
-
-
-
-  const isCartOpen = useSelector(selectIsCartOpen)
   const cartItems = useSelector(selectCartItems)
-  console.log(cartItems)
+  const isCartOpen = useSelector(selectIsCartOpen)
   const navigate = useNavigate();
+
 
   const goToCheckout = () => {
     navigate('/checkout')
