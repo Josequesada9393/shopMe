@@ -7,7 +7,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  User,
+  NextOrObserver,
+  Auth,
+  CompleteFn
 } from 'firebase/auth'
 
 import {
@@ -18,9 +22,11 @@ import {
   collection,
   writeBatch,
   query,
-  getDocs
+  getDocs,
+  QueryDocumentSnapshot
 } from 'firebase/firestore'
 
+import { CategoryArray } from '../../store/categories/category.reducer';
 //FIREBASE AUTHENTICATION
 //firebase apiKey does not need to be secret
 const firebaseConfig = {
@@ -54,15 +60,20 @@ export const signInWithGoogleRedirect =  () =>  signInWithRedirect(auth, GoogleP
 
 export const db = getFirestore();
 
+export type ObjectToAdd = {
+  title: string
+}
 //we add collection of data from local input to our firestore database
-export const addCollectionAndDocuments = async (collectionKey,
-  objectsToAdd,
-field = 'title') => {
+//async functions always return a promise
+export const addCollectionAndDocuments = async<T extends ObjectToAdd> (
+  collectionKey:string,
+  objectsToAdd: T[],
+):Promise<void> => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
   objectsToAdd.forEach((object) => {
     //we do not need to call db because cllection already tells which db it is in
-    const docRef = doc(collectionRef, object[field].toLowerCase());
+    const docRef = doc(collectionRef, object.title.toLowerCase());
     batch.set(docRef, object);
   });
 
@@ -73,22 +84,33 @@ field = 'title') => {
 //function to get the categories and documents
 //creating this instead of using native firebase methods to facilitate modifications in change google
 //updates its methods for firebase
-export const getCategoriesAndDocuments = async () => {
+export const getCategoriesAndDocuments = async ():Promise<CategoryArray[]> => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
 
-  return querySnapshot.docs.map(docSnapshot => docSnapshot.data())
+  return querySnapshot.docs.map(docSnapshot => docSnapshot.data() as CategoryArray)
 
 
 }
 
 //we create a user to our database from AUTH
+export type extraInfo = {
+  displayName ?: string;
+}
+
+export type UserData = {
+  createdAt: Date,
+  displayName: string,
+  email: string
+}
+
+
 export const createUserDocumentFromAuth = async (
-  userAuth,
-  extraInfo = {}
-) => {
+  userAuth: User,
+  extraInfo: extraInfo = {}
+): Promise<QueryDocumentSnapshot<UserData> | void> => {
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
   const userSnapshot = await getDoc(userDocRef);
@@ -107,24 +129,24 @@ export const createUserDocumentFromAuth = async (
       console.log('error creating the user', error)
     }
   }
-  return userDocRef
+  return userSnapshot as QueryDocumentSnapshot<UserData>
 }
 //user created with email and password
 
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
+export const createAuthUserWithEmailAndPassword = async (email:string, password:string) => {
   if (!email || !password) return;
  return await createUserWithEmailAndPassword(auth, email, password);
 }
 //use signed in with email and password
-export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+export const signInAuthUserWithEmailAndPassword = async (email:string, password:string) => {
   if (!email || !password) return;
  return await signInWithEmailAndPassword(auth, email, password);
 }
 
 // sign out method
 
-export const signOutUser = async () => await signOut(auth);
+export const signOutUser = async ():Promise<void> => await signOut(auth);
 
 //state changed listener to have a wider control of the current user across website
-export const onAuthStateChangedListener = (callback) =>
+export const onAuthStateChangedListener = (callback:NextOrObserver<User>): CompleteFn | undefined =>
  onAuthStateChanged(auth, callback)

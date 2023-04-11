@@ -3,7 +3,7 @@ import "../SingUpForm/SignUpForm.scss"
 import { useState } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../Utils/Firebase/firebase'
 import FormInput from '../FormInput/FormInput'
-import Button from '../button/Button'
+import Button from '../button/Button.jsx'
 import { BaseButton } from '../button/Button.styles'
 
 const SignUpForm = () => {

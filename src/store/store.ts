@@ -1,4 +1,4 @@
-import { compose, createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware, Middleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 
 
@@ -13,8 +13,9 @@ import { rootReducer } from './root-reducer';
 // const sagaMiddleware = createSagaMiddleware();
 
 
-const middleWares:any = [process.env.NODE_ENV === 'development' && logger].filter(
-  Boolean
+const middleWares = [process.env.NODE_ENV === 'development' && logger].filter(
+  (middleware): middleware is Middleware =>
+  Boolean(middleware)
 );
 
 // const composeEnhancer = (process.env.ENV_ENV !== 'production'

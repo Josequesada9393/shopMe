@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../button/Button'
+import Button from '../button/Button.jsx'
 import './ProductCardStyle.scss'
 import { useContext } from 'react'
 import { WishListContext } from '../../context/WishListContext'
