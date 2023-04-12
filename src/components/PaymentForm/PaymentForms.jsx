@@ -8,7 +8,7 @@ import { selectCurrentUser } from '../../store/user/user.selector'
 import { useSelector } from 'react-redux'
 
 
-import BUTTON_TYPE_CLASSES from '../button/Button.jsx'
+import BUTTON_TYPE_CLASSES from '../button/Button.tsx'
 
 function PaymentForms() {
   const cartTotal = useSelector(selectCartTotal)

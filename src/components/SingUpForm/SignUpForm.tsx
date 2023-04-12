@@ -3,8 +3,10 @@ import "../SingUpForm/SignUpForm.scss"
 import { useState } from 'react'
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../Utils/Firebase/firebase'
 import FormInput from '../FormInput/FormInput'
-import Button from '../button/Button.jsx'
+import Button from '../button/Button'
 import { BaseButton } from '../button/Button.styles'
+import { FormEventHandler, FormEvent, ChangeEvent } from 'react'
+import { User, UserCredential } from 'firebase/auth'
 
 const SignUpForm = () => {
 
@@ -17,7 +19,7 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const {displayName, email, password, confirmPassword} = formFields
 
-  const handleChange = (event) => {
+  const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
     setFormFields({ ...formFields, [name]: value })
   }
@@ -25,7 +27,7 @@ const SignUpForm = () => {
   const resetFields = () => {
     setFormFields(defaultFormFields)
   }
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event:FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
@@ -34,13 +36,13 @@ const SignUpForm = () => {
     }
     try {
       //create the user in firebase with firebase native method
-      const { user } = await createAuthUserWithEmailAndPassword(email, password)
+      const { user }:any = await createAuthUserWithEmailAndPassword(email, password)
       //store the user in the database
       await createUserDocumentFromAuth(user, { displayName })
       resetFields()
 
     } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
+      if (error === 'auth/email-already-in-use') {
         alert('cannot create user, email already in use');
       } else {
       console.log('user creation encountered an error', error)

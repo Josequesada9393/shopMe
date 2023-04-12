@@ -11,7 +11,7 @@ import {
   User,
   NextOrObserver,
   Auth,
-  CompleteFn
+  CompleteFn,
 } from 'firebase/auth'
 
 import {

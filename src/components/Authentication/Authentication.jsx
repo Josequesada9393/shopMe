@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Authentication/Authentication.styles.scss'
-import SignUpForm from '../SingUpForm/SignUpForm';
-import SignInForm from '../SignInForm/SignInForm.js'
+import SignUpForm from '../SingUpForm/SignUpForm.tsx';
+import SignInForm from '../SignInForm/SignInForm.tsx'
 
   function Authentication() {
 
